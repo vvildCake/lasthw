@@ -39,5 +39,7 @@ public class PointPatroller : MonoBehaviour
     private void MoveToPoint(int pointIndex)
     {
         transform.position = new Vector3(_patrollingPoints[pointIndex].position.x, transform.position.y, _patrollingPoints[pointIndex].position.z);
+        
+
     }
 }

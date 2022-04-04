@@ -47,7 +47,7 @@ public class PointsObserver : MonoBehaviour
         Vector3 directionToPoint = distanceToPoint.normalized;
 
         if (Physics.Raycast(transform.position, directionToPoint, out RaycastHit hit, distanceToPoint.magnitude, _playerMask))
-            hit.collider.GetComponent<Player>().Kill();
+            //hit.collider.GetComponent<Player>().Kill();
 
         _fieldOfView.SetActive(Physics.Raycast(transform.position, directionToPoint, distanceToPoint.magnitude, _obstacleMask) == false);
         transform.forward = new Vector3(directionToPoint.x, 0f, directionToPoint.z);

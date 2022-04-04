@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class Game : MonoBehaviour
 {
@@ -15,9 +16,20 @@ public class Game : MonoBehaviour
     private float _timer = 0;
     private bool _gameIsEnded = false;
 
+    public UnityEvent gameEvents;
+
     private void Awake()
     {
+        InitLevelData();
+        gameEvents.AddListener(InitLevelData);
+    }
+
+    private void InitLevelData()
+    {
         _timer = _timerValue;
+        _player = FindObjectOfType<Player>();
+        _exitFromLevel = FindObjectOfType<Exit>();
+        _exitFromLevel.Close();
     }
 
     private void Start()
@@ -77,8 +89,7 @@ public class Game : MonoBehaviour
 
     public void Victory()
     {
-        _gameIsEnded = true;
-        _player.Disable();
+        gameEvents.Invoke();
         Debug.LogError("Victory");
     }
 

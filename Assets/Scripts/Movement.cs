@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
@@ -26,7 +24,7 @@ public class Movement : MonoBehaviour
     {
         var forwardRay = new Ray(transform.position, direction);
 
-        if (Physics.Raycast(forwardRay, out RaycastHit hit, _step, _obstacleMask))
+        if (Physics.Raycast(forwardRay, out RaycastHit hit, _step, _obstacleMask ))
             return;
 
         transform.forward = direction;
